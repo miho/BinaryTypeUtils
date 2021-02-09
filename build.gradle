@@ -44,7 +44,7 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.13'
 
-    implementation 'eu.mihosoft.streamutils:streamutils:0.1.0'
+    implementation 'eu.mihosoft.streamutils:streamutils:0.1.2'
 
     implementation "org.tinylog:tinylog-api:2.0.1"
     implementation "org.tinylog:tinylog-impl:2.0.1"

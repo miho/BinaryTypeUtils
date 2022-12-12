@@ -37,6 +37,7 @@ import java.util.Map;
  */
 class BinarySerializerImpl implements BinarySerializer, BinaryDeserializer {
 
+    private final static String TAG = "eu.mihosoft.binarytypeutils:serializer";
     private final StreamUtils.ReadingInputStream inputStream;
     private final OutputStream outputStream;
     private final ByteOrder byteOrder;
@@ -51,7 +52,7 @@ class BinarySerializerImpl implements BinarySerializer, BinaryDeserializer {
      */
     private BinarySerializerImpl(InputStream inputStream, OutputStream outputStream, ByteOrder byteOrder) {
 
-        org.tinylog.Logger.debug("creating BinaryCommunication with  byte-order:='{}'.",
+        org.tinylog.Logger.tag(TAG).trace("creating BinaryCommunication with  byte-order:='{}'.",
                 byteOrder);
 
         this.outputStream = outputStream;
@@ -119,7 +120,7 @@ class BinarySerializerImpl implements BinarySerializer, BinaryDeserializer {
     @Override
     public Object readValue(BinaryType binaryType) {
 
-        org.tinylog.Logger.debug("receiving value binaryType='{}'.", binaryType);
+        org.tinylog.Logger.tag(TAG).trace("receiving value binaryType='{}'.", binaryType);
 
         BinaryConverter converter = converterByBinaryTypeName.get(binaryType);
 
@@ -140,7 +141,7 @@ class BinarySerializerImpl implements BinarySerializer, BinaryDeserializer {
     @Override
     public void writeValue(BinaryType binaryType, Object value) {
 
-        org.tinylog.Logger.debug("sending value binaryType='{}'.", binaryType);
+        org.tinylog.Logger.tag(TAG).trace("sending value binaryType='{}'.", binaryType);
 
         BinaryConverter converter = converterByBinaryTypeName.get(binaryType);
 
